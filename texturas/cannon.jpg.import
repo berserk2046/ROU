@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cku63eb0g27vj"
-path="res://.godot/imported/cannon.jpg-8157b670fa9806b29f13625c39f3ac60.ctex"
+path="res://.godot/imported/cannon.jpg-fcaf891d3f21960186e2a49cfd269dbc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objetos/cannon.jpg"
-dest_files=["res://.godot/imported/cannon.jpg-8157b670fa9806b29f13625c39f3ac60.ctex"]
+source_file="res://texturas/cannon.jpg"
+dest_files=["res://.godot/imported/cannon.jpg-fcaf891d3f21960186e2a49cfd269dbc.ctex"]
 
 [params]
 

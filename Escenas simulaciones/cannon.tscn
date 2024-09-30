@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cnfny24q1ghgk" path="res://texturas/mc.jpg" id="1_ld8sp"]
 [ext_resource type="Script" path="res://Objetos/cannon.gd" id="2_qejn6"]
-[ext_resource type="Texture2D" uid="uid://cku63eb0g27vj" path="res://Objetos/cannon.jpg" id="3_stwgn"]
+[ext_resource type="Texture2D" uid="uid://cku63eb0g27vj" path="res://texturas/cannon.jpg" id="3_stwgn"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ymhh6"]
 tile_data = PackedInt32Array(0, 458752, 2, 65536, 196608, 4, 1, 458752, 2, 65537, 327680, 4)

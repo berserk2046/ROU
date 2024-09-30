@@ -1,6 +1,11 @@
 extends Node
 
+# Caida Libre
 signal bala_toca_suelo()
+
+# MRU
+var velocidad = 0
+signal colision_pared()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
