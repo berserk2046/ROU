@@ -2,6 +2,9 @@ extends Area2D
 var pixel_metro = 18
 var m_s
 var k_h
+var tiempo = 0
+var distancia_px
+var distancia = 0
 
 func shoot():
 	var bullet = load("res://Objetos/bullet_MRU.tscn")
@@ -10,19 +13,19 @@ func shoot():
 	b.transform = $Muzzle.global_transform
 	SignalBus.colision_pared.connect(_on_colision_pared)
 
-func _on_distancia_slider_value_changed(value: float) -> void:
-	pixel_metro = $"../distancia_slider".max_value - value
-	get_node("../distancia_label").text = "Distancia (%0.2fm): " % (1152/pixel_metro)
+func _on_tiempo_slider_value_changed(value: float) -> void:
+	tiempo = value
+	get_node("../tiempo_label").text = "Tiempo (%0.2fs): " % value
 
 func _on_velocidad_slider_value_changed(value: float) -> void:
-	SignalBus.velocidad = value
-	m_s = SignalBus.velocidad / pixel_metro
+	SignalBus.velocidad = 1152/tiempo
+	m_s = value / pixel_metro
 	k_h = m_s * 3.6
 	get_node("../velocidad_label").text = "Velocidad (%0.2fkm/h): " % k_h
 
-
 func _on_colision_pared():
-	get_node("../tiempo_label").text = "Tiempo: %0.4f" % ((1152/pixel_metro)/m_s)
+	distancia = m_s * tiempo
+	get_node("../distancia_label").text = "Distancia: %0.4fm" % distancia
 
 
 func _input(event):
