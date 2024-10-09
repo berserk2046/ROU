@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=4 uid="uid://8k4xnhldf7t5"]
+[gd_scene load_steps=16 format=4 uid="uid://8k4xnhldf7t5"]
 
 [ext_resource type="Texture2D" uid="uid://cnfny24q1ghgk" path="res://texturas/mc.jpg" id="1_1rmg2"]
 [ext_resource type="Texture2D" uid="uid://bo3epoplhaln" path="res://texturas/cielo.jpg" id="2_7k4y5"]
 [ext_resource type="Script" path="res://Escenas simulaciones/MRU/MRU_Distancia/personaje_MRU_Distancia.gd" id="3_ak5da"]
-[ext_resource type="Texture2D" uid="uid://dp4l1ofqp4fwm" path="res://texturas/stickman.png" id="4_76ddk"]
+[ext_resource type="Texture2D" uid="uid://swdpq4wpn5gu" path="res://texturas/sprite_MRU_accionando.png" id="4_6efod"]
+[ext_resource type="Script" path="res://Escenas simulaciones/caida libre/quit_to_menu.gd" id="5_s5apj"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ymhh6"]
 tile_data = PackedInt32Array(0, 458752, 2, 65536, 196608, 4, 1, 458752, 2, 65537, 327680, 4)
@@ -10608,7 +10609,7 @@ sources/0 = SubResource("TileSetAtlasSource_tnmbm")
 pattern_0 = SubResource("TileMapPattern_mfkmb")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvfi0"]
-size = Vector2(32, 38)
+size = Vector2(69, 85)
 
 [node name="MovimientoRectilinioUniforme" type="Node2D"]
 
@@ -10628,19 +10629,19 @@ tile_map_data = PackedByteArray("AAAKAAAAAAAsAC8AAAAKAAEAAABSACcAAAAKAAIAAAA7ADc
 tile_set = SubResource("TileSet_hd4h6")
 
 [node name="personaje" type="Area2D" parent="."]
-position = Vector2(37, 314)
+position = Vector2(47, 293)
 script = ExtResource("3_ak5da")
 
 [node name="Sprite2D" type="Sprite2D" parent="personaje"]
-position = Vector2(-2.27374e-13, 0)
-scale = Vector2(0.025, 0.016289)
-texture = ExtResource("4_76ddk")
+position = Vector2(-1.90735e-06, 1.04904e-05)
+scale = Vector2(0.198413, 0.189938)
+texture = ExtResource("4_6efod")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="personaje"]
 shape = SubResource("RectangleShape2D_fvfi0")
 
 [node name="Muzzle" type="Marker2D" parent="personaje"]
-position = Vector2(16, -3)
+position = Vector2(35, -26)
 
 [node name="velocidad_label" type="Label" parent="."]
 offset_left = 13.0
@@ -10679,6 +10680,13 @@ offset_bottom = 513.0
 min_value = 1.0
 max_value = 120.0
 value = 1.0
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 1025.0
+offset_top = 594.0
+offset_right = 1102.0
+offset_bottom = 622.0
+script = ExtResource("5_s5apj")
 
 [connection signal="value_changed" from="velocidad_slider" to="personaje" method="_on_velocidad_slider_value_changed"]
 [connection signal="value_changed" from="tiempo__slider" to="personaje" method="_on_tiempo_slider_value_changed"]

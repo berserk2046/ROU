@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d0dvf6opbmsup"]
 
-[ext_resource type="Script" path="res://Escenas simulaciones/UI/menus/start_game.gd" id="1_hulfl"]
+[ext_resource type="Script" path="res://Escenas simulaciones/UI/menus/main/start_game.gd" id="1_hulfl"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3

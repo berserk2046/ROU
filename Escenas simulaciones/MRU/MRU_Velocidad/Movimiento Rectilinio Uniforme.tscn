@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=4 uid="uid://daltryfpgqb53"]
+[gd_scene load_steps=16 format=4 uid="uid://daltryfpgqb53"]
 
 [ext_resource type="Texture2D" uid="uid://cnfny24q1ghgk" path="res://texturas/mc.jpg" id="1_0evba"]
 [ext_resource type="Texture2D" uid="uid://bo3epoplhaln" path="res://texturas/cielo.jpg" id="2_q44ce"]
 [ext_resource type="Script" path="res://Escenas simulaciones/MRU/MRU_Velocidad/personaje_MRU_velocidad.gd" id="3_ktu6c"]
-[ext_resource type="Texture2D" uid="uid://dp4l1ofqp4fwm" path="res://texturas/stickman.png" id="4_vw8ho"]
+[ext_resource type="Texture2D" uid="uid://swdpq4wpn5gu" path="res://texturas/sprite_MRU_accionando.png" id="4_c0j30"]
+[ext_resource type="Script" path="res://Escenas simulaciones/caida libre/quit_to_menu.gd" id="5_s04dw"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ymhh6"]
 tile_data = PackedInt32Array(0, 458752, 2, 65536, 196608, 4, 1, 458752, 2, 65537, 327680, 4)
@@ -10607,8 +10608,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_tnmbm")
 pattern_0 = SubResource("TileMapPattern_mfkmb")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvfi0"]
-size = Vector2(32, 38)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exrm7"]
+size = Vector2(69, 85)
 
 [node name="MovimientoRectilinioUniforme" type="Node2D"]
 
@@ -10628,19 +10629,19 @@ tile_map_data = PackedByteArray("AAAKAAAAAAAsAC8AAAAKAAEAAABSACcAAAAKAAIAAAA7ADc
 tile_set = SubResource("TileSet_hd4h6")
 
 [node name="personaje" type="Area2D" parent="."]
-position = Vector2(37, 314)
+position = Vector2(70, 293)
 script = ExtResource("3_ktu6c")
 
 [node name="Sprite2D" type="Sprite2D" parent="personaje"]
-position = Vector2(-2.27374e-13, 0)
-scale = Vector2(0.025, 0.016289)
-texture = ExtResource("4_vw8ho")
+position = Vector2(-1.90735e-06, 1.04904e-05)
+scale = Vector2(0.198413, 0.189938)
+texture = ExtResource("4_c0j30")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="personaje"]
-shape = SubResource("RectangleShape2D_fvfi0")
+shape = SubResource("RectangleShape2D_exrm7")
 
 [node name="Muzzle" type="Marker2D" parent="personaje"]
-position = Vector2(16, -3)
+position = Vector2(35, -26)
 
 [node name="distancia_label" type="Label" parent="."]
 offset_left = 13.0
@@ -10679,6 +10680,13 @@ offset_bottom = 513.0
 min_value = 1.0
 max_value = 120.0
 value = 1.0
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 1025.0
+offset_top = 594.0
+offset_right = 1102.0
+offset_bottom = 622.0
+script = ExtResource("5_s04dw")
 
 [connection signal="value_changed" from="distancia_slider" to="personaje" method="_on_distancia_slider_value_changed"]
 [connection signal="value_changed" from="tiempo__slider" to="personaje" method="_on_tiempo_slider_value_changed"]

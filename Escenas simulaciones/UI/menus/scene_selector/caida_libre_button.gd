@@ -1,10 +1,11 @@
 extends Button
 
+var scene = "res://Escenas simulaciones/caida libre/caida libre.tscn"
+
 func _add_a_scene_menu_manually():
-	get_tree().change_scene_to_file("res://Escenas simulaciones/UI/menus/main/main_menu.tscn")
+	get_tree().change_scene_to_file(scene)
 
 func _ready():
-	text = "Quit to Menu"
 	pressed.connect(self._quit_button_pressed)
 
 func _quit_button_pressed():

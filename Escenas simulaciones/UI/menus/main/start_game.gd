@@ -1,9 +1,7 @@
 extends Button
 
-var caida_libre = preload("res://Escenas simulaciones/caida libre/caida libre.tscn")
-
 func _add_a_scene_manually():
-	get_tree().change_scene_to_packed(caida_libre)
+	get_tree().change_scene_to_file("res://Escenas simulaciones/UI/menus/scene_selector/Scene_Selection_Menu.tscn")
 
 func _ready():
 	text = "Start Game"
