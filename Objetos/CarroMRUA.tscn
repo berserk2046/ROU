@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhlyd57ygid7f"]
+
+[ext_resource type="Texture2D" uid="uid://kkwr43kwest8" path="res://Objetos/ball.png" id="1_f7ivt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07nsd"]
+size = Vector2(134, 54)
+
+[node name="CarroMrua" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(14.9444, 1)
+texture = ExtResource("1_f7ivt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.04, 1)
+shape = SubResource("RectangleShape2D_07nsd")
