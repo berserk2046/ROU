@@ -16,8 +16,9 @@ func shoot():
 func _on_tiempo_slider_value_changed(value: float) -> void:
 	tiempo = value
 	get_node("../tiempo_label").text = "Tiempo (%0.2fs): " % value
-
+ 
 func _on_velocidad_slider_value_changed(value: float) -> void:
+	if tiempo == 0: tiempo = 1
 	SignalBus.velocidad = 1152/tiempo
 	m_s = value / pixel_metro
 	k_h = m_s * 3.6
@@ -31,4 +32,6 @@ func _on_colision_pared():
 func _input(event):
 	if event is InputEventKey:
 		if Input.is_action_just_pressed("ui_accept"):
-			shoot()
+			var v_value = $"../velocidad_slider".value
+			if v_value < 1: get_node("../error_label").text = "Error: Dele un valor a la velocidad."
+			else: print("value: ", v_value); shoot()
