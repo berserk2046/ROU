@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://baj6pdl2aiekk"]
+[gd_scene load_steps=9 format=3 uid="uid://baj6pdl2aiekk"]
 
 [ext_resource type="Texture2D" uid="uid://cdqwyvyw3l2v2" path="res://texturas/boton_vf_t.png" id="1_ia8av"]
 [ext_resource type="Script" path="res://Escenas simulaciones/UI/menus/scene_selector/scene_selection_menu.gd" id="1_ubyco"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dktu2cburw26g" path="res://texturas/button_distancia_mru.png" id="3_gas5y"]
 [ext_resource type="Script" path="res://Escenas simulaciones/UI/menus/scene_selector/button_mru.gd" id="5_7sfm5"]
 [ext_resource type="Script" path="res://Escenas simulaciones/UI/menus/scene_selector/next_page.gd" id="6_0doel"]
+[ext_resource type="Texture2D" uid="uid://c3hfrwm0grtyn" path="res://texturas/flecha_izquierda.png" id="6_lwdsg"]
+[ext_resource type="Texture2D" uid="uid://dmgkwyh2kt43e" path="res://texturas/flecha_derecha.png" id="7_gifpn"]
 
 [node name="SceneSelectionMenu" type="Control"]
 layout_mode = 3
@@ -100,17 +102,19 @@ script = ExtResource("5_7sfm5")
 
 [node name="Left" type="Button" parent="MarginContainer2/HBoxContainer/MRU"]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 200.0
-offset_right = 73.0
-offset_bottom = 248.0
+offset_left = 42.0
+offset_top = 201.0
+offset_right = 82.0
+offset_bottom = 256.0
+icon = ExtResource("6_lwdsg")
 
 [node name="Right" type="Button" parent="MarginContainer2/HBoxContainer/MRU"]
 layout_mode = 0
 offset_left = 461.0
 offset_top = 201.0
-offset_right = 499.0
-offset_bottom = 277.0
+offset_right = 501.0
+offset_bottom = 256.0
+icon = ExtResource("7_gifpn")
 
 [node name="next_page" type="Button" parent="MarginContainer2"]
 layout_mode = 2

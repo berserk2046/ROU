@@ -1,6 +1,6 @@
 extends Area2D
 var pixel_metro = 14.9090909091
-var gravedad = 9.81
+var gravedad = SignalBus.gravedad
 var altura_metros
 
 func shoot():
@@ -16,7 +16,8 @@ func _on_slider_altura_value_changed(value: float) -> void:
 	get_node("../Altura").text = "Altura (%0.2f metros): " % altura_metros
 	
 func _on_v_slider_value_changed(value: float) -> void:
-	gravedad = value
+	SignalBus.gravedad = value
+	gravedad = SignalBus.gravedad
 	$"../Gravedad".text = "Gravedad: %0.2fm/s^2" % gravedad
 	
 func _on_bala_toco_piso():

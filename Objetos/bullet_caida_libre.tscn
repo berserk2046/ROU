@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://dw77hyat7y4y0"]
 
 [ext_resource type="Script" path="res://Objetos/bullet_caidalibre.gd" id="1_7nqht"]
-[ext_resource type="Texture2D" uid="uid://kkwr43kwest8" path="res://Objetos/ball.png" id="2_15qee"]
+[ext_resource type="Texture2D" uid="uid://8txqmwvenasg" path="res://texturas/objeto_caidalibre.png" id="2_iyeu0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gmxk4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xg20l"]
-size = Vector2(20, 5)
+size = Vector2(18, 16)
 
 [node name="Node2D" type="Node2D"]
 
@@ -18,12 +18,10 @@ max_contacts_reported = 1
 script = ExtResource("1_7nqht")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-position = Vector2(0, 3.57628e-07)
-scale = Vector2(2.55556, 0.0740741)
-texture = ExtResource("2_15qee")
+scale = Vector2(0.601562, 0.556134)
+texture = ExtResource("2_iyeu0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_xg20l")
 
 [connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_body_entered"]

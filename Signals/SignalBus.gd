@@ -2,6 +2,7 @@ extends Node
 
 # Caida Libre
 signal bala_toca_suelo()
+var gravedad = 9.81
 
 # MRU
 var velocidad = 0

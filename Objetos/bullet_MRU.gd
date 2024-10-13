@@ -14,3 +14,5 @@ func _physics_process(delta: float) -> void:
 		if collide.get_collider().name == "TileMapLayer":
 			queue_free()
 			SignalBus.colision_pared.emit()
+		elif collide.get_collider().name == "bullet":
+			queue_free()

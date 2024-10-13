@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cnfny24q1ghgk" path="res://texturas/mc.jpg" id="1_lokua"]
 [ext_resource type="Texture2D" uid="uid://bo3epoplhaln" path="res://texturas/cielo.jpg" id="2_ylta7"]
 [ext_resource type="Script" path="res://Escenas simulaciones/MRUA/carro_mrua.gd" id="3_lpamk"]
-[ext_resource type="Texture2D" uid="uid://kkwr43kwest8" path="res://Objetos/ball.png" id="4_sp0xr"]
+[ext_resource type="Texture2D" uid="uid://crua51ip10bam" path="res://texturas/objeto_mrua.png" id="4_14loi"]
 [ext_resource type="Script" path="res://Escenas simulaciones/caida libre/quit_to_menu.gd" id="5_rlxvy"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ymhh6"]
@@ -15,9 +15,9 @@ tile_data = PackedInt32Array(0, 327680, 5, 65536, 327680, 5, 1, 327680, 5, 65537
 [sub_resource type="TileMapPattern" id="TileMapPattern_mar55"]
 tile_data = PackedInt32Array(0, 720896, 26, 65536, 720896, 26, 1, 720896, 26, 65537, 720896, 26)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rml6e"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kaeqf"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hmn0t"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l7b5b"]
 texture = ExtResource("1_lokua")
 separation = Vector2i(1, 1)
 texture_region_size = Vector2i(18, 18)
@@ -2550,8 +2550,8 @@ texture_region_size = Vector2i(18, 18)
 tile_size = Vector2i(18, 18)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
-physics_layer_0/physics_material = SubResource("PhysicsMaterial_rml6e")
-sources/0 = SubResource("TileSetAtlasSource_hmn0t")
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_kaeqf")
+sources/0 = SubResource("TileSetAtlasSource_l7b5b")
 pattern_0 = SubResource("TileMapPattern_ymhh6")
 pattern_1 = SubResource("TileMapPattern_yjp4g")
 pattern_2 = SubResource("TileMapPattern_mar55")
@@ -2559,7 +2559,7 @@ pattern_2 = SubResource("TileMapPattern_mar55")
 [sub_resource type="TileMapPattern" id="TileMapPattern_mfkmb"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 1, 0, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, 3, 0, 0, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tnmbm"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uqr8f"]
 texture = ExtResource("2_ylta7")
 0:0/0 = 0
 1:0/0 = 0
@@ -10605,7 +10605,7 @@ texture = ExtResource("2_ylta7")
 
 [sub_resource type="TileSet" id="TileSet_hd4h6"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_tnmbm")
+sources/0 = SubResource("TileSetAtlasSource_uqr8f")
 pattern_0 = SubResource("TileMapPattern_mfkmb")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07nsd"]
@@ -10662,19 +10662,15 @@ offset_left = 235.0
 offset_top = 497.0
 offset_right = 419.0
 offset_bottom = 513.0
-min_value = 5.76
 max_value = 57.6
 step = 5.76
-value = 5.76
 
 [node name="aceleracion_slider" type="HSlider" parent="."]
 offset_left = 235.0
 offset_top = 529.0
 offset_right = 420.0
 offset_bottom = 545.0
-min_value = 1.0
 max_value = 10.0
-value = 1.0
 
 [node name="aceleracion_label" type="Label" parent="."]
 offset_left = 13.0
@@ -10707,8 +10703,9 @@ position = Vector2(78, 307)
 script = ExtResource("3_lpamk")
 
 [node name="Sprite2D" type="Sprite2D" parent="CarroMrua"]
-scale = Vector2(14.9444, 1)
-texture = ExtResource("4_sp0xr")
+position = Vector2(46, -30)
+scale = Vector2(0.988053, 0.894531)
+texture = ExtResource("4_14loi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CarroMrua"]
 scale = Vector2(1.04, 1)
@@ -10720,6 +10717,12 @@ offset_top = 594.0
 offset_right = 1102.0
 offset_bottom = 622.0
 script = ExtResource("5_rlxvy")
+
+[node name="error_label" type="Label" parent="."]
+offset_left = 22.0
+offset_top = 605.0
+offset_right = 212.0
+offset_bottom = 628.0
 
 [connection signal="value_changed" from="velocidad_slider" to="CarroMrua" method="_on_velocidad_slider_value_changed"]
 [connection signal="value_changed" from="distancia_slider" to="CarroMrua" method="_on_distancia_slider_value_changed"]

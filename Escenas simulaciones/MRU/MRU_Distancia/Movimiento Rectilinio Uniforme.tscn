@@ -3266,8 +3266,10 @@ pattern_6 = SubResource("TileMapPattern_8mdci")
 size = Vector2(69, 85)
 
 [node name="MovimientoRectilinioUniforme" type="Node2D"]
+texture_filter = 1
 
 [node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
 position = Vector2(-1, 190)
 tile_set = SubResource("TileSet_ksdl4")
 format = 2
@@ -3282,6 +3284,7 @@ tile_map_data = PackedByteArray("AAAUAAYAAAATAAgAAAAUAAcAAAATAAkAAAAUAAgAAAATAAc
 tile_set = SubResource("TileSet_3brkv")
 
 [node name="personaje" type="Area2D" parent="."]
+texture_filter = 2
 position = Vector2(47, 293)
 script = ExtResource("3_ak5da")
 
@@ -3297,13 +3300,15 @@ shape = SubResource("RectangleShape2D_fvfi0")
 position = Vector2(35, -26)
 
 [node name="velocidad_label" type="Label" parent="."]
+texture_filter = 1
 offset_left = 13.0
 offset_top = 461.0
-offset_right = 53.0
+offset_right = 166.0
 offset_bottom = 484.0
 text = "Velocidad (0 km/h): "
 
 [node name="velocidad_slider" type="HSlider" parent="."]
+texture_filter = 1
 offset_left = 213.0
 offset_top = 465.0
 offset_right = 398.0
@@ -3333,10 +3338,10 @@ max_value = 120.0
 value = 1.0
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 1025.0
-offset_top = 594.0
-offset_right = 1102.0
-offset_bottom = 622.0
+offset_left = 1046.0
+offset_top = 597.0
+offset_right = 1123.0
+offset_bottom = 625.0
 script = ExtResource("5_s5apj")
 
 [node name="error_label" type="Label" parent="."]

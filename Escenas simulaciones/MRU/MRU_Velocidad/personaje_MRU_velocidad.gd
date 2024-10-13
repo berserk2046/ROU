@@ -6,7 +6,7 @@ var tiempo=1
 var distancia_px = 0; var distancia
 
 func _on_distancia_slider_value_changed(value: float) -> void:
-	distancia_px = 1152 + value
+	distancia_px =  value
 	distancia = distancia_px / pixel_metro
 	get_node("../distancia_label").text = "Distancia (%0.2f m): " % distancia
 
