@@ -1,7 +1,7 @@
 extends Area2D
 var pixel_metro = 14.9090909091
 var gravedad = SignalBus.gravedad
-var altura_metros
+var altura_metros = 0
 
 func shoot():
 	var bullet = load("res://Objetos/bullet_caida_libre.tscn")
@@ -27,4 +27,5 @@ func _on_bala_toco_piso():
 func _input(event):
 	if event is InputEventKey:
 		if Input.is_action_just_pressed("ui_accept"):
-			shoot()
+			if altura_metros == 0: get_node("../error_label").text = "Error: Debe ingresar una altura"
+			else: get_node("../error_label").text = "" ; shoot()

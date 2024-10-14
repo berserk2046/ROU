@@ -1,10 +1,15 @@
-[gd_scene load_steps=26 format=4 uid="uid://c1xq27s87y8aa"]
+[gd_scene load_steps=31 format=4 uid="uid://c1xq27s87y8aa"]
 
 [ext_resource type="Texture2D" uid="uid://cnfny24q1ghgk" path="res://texturas/mc.jpg" id="2_1xvyv"]
 [ext_resource type="Texture2D" uid="uid://c2maydcqew02g" path="res://texturas/Fondo_caida libre.png" id="2_siktk"]
 [ext_resource type="Texture2D" uid="uid://dovdecgwkpxcv" path="res://texturas/sprite_caidalibre_accionando.png" id="4_6dsxc"]
 [ext_resource type="Script" path="res://Escenas simulaciones/caida libre/personaje.gd" id="4_b5whp"]
+[ext_resource type="Script" path="res://Escenas simulaciones/caida libre/info_button.gd" id="6_6xlac"]
+[ext_resource type="Script" path="res://Escenas simulaciones/caida libre/info_window.gd" id="6_8bayx"]
 [ext_resource type="Script" path="res://Escenas simulaciones/caida libre/quit_to_menu.gd" id="6_pakop"]
+[ext_resource type="Texture2D" uid="uid://cyt53bjiynxrn" path="res://texturas/boton_ayuda.png" id="6_ppuj6"]
+[ext_resource type="Texture2D" uid="uid://bvs6eckqrcwke" path="res://texturas/formulas/formula_caidalibre_vf.png" id="8_14to2"]
+[ext_resource type="Texture2D" uid="uid://cb4wp7fv7sh8x" path="res://texturas/formulas/formula_caidalibre_tiempo.png" id="9_50s44"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ymhh6"]
 tile_data = PackedInt32Array(0, 458752, 2, 65536, 196608, 4, 1, 458752, 2, 65537, 327680, 4)
@@ -5681,6 +5686,68 @@ max_value = 20.0
 step = 0.2
 value = 1.0
 
+[node name="info_button" type="Button" parent="."]
+offset_left = 385.0
+offset_top = 561.0
+offset_right = 457.0
+offset_bottom = 633.0
+focus_mode = 0
+icon = ExtResource("6_ppuj6")
+flat = true
+script = ExtResource("6_6xlac")
+
+[node name="info_window" type="Window" parent="."]
+title = "Info"
+initial_position = 4
+size = Vector2i(600, 200)
+script = ExtResource("6_8bayx")
+
+[node name="vf_formula" type="TextureRect" parent="info_window"]
+anchors_preset = -1
+anchor_top = 0.156
+anchor_bottom = 0.156
+offset_right = 204.66
+offset_bottom = 40.0
+texture = ExtResource("8_14to2")
+expand_mode = 3
+
+[node name="vf_text" type="RichTextLabel" parent="info_window"]
+offset_right = 40.0
+offset_bottom = 40.0
+text = "La velocidad final se calcula con la formula:"
+fit_content = true
+autowrap_mode = 0
+
+[node name="tiempo_label" type="RichTextLabel" parent="info_window"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 272.0
+offset_bottom = 20.0
+grow_vertical = 2
+text = "El tiempo se calcula con la formula:"
+fit_content = true
+autowrap_mode = 0
+
+[node name="time_formula" type="TextureRect" parent="info_window"]
+anchors_preset = -1
+anchor_left = 0.026
+anchor_top = 0.529
+anchor_right = 0.026
+anchor_bottom = 0.878
+offset_right = 122.82
+offset_bottom = 20.0
+texture = ExtResource("9_50s44")
+expand_mode = 3
+
+[node name="error_label" type="Label" parent="."]
+offset_left = 22.0
+offset_top = 410.0
+offset_right = 212.0
+offset_bottom = 433.0
+
 [connection signal="value_changed" from="slider_altura" to="Altura" method="_on_slider_altura_value_changed"]
 [connection signal="value_changed" from="slider_altura" to="personaje" method="_on_slider_altura_value_changed"]
 [connection signal="value_changed" from="gravedad_slider" to="personaje" method="_on_v_slider_value_changed"]
+[connection signal="close_requested" from="info_window" to="info_window" method="_on_close_requested"]
