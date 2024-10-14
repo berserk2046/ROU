@@ -55,6 +55,10 @@ func _on_distancia_slider_value_changed(value: float) -> void:
 	aceleracion_px = $"../aceleracion_slider".value * pixel_metro
 	print("value: ", $"../distancia_slider".max_value - value)
 	get_node("../distancia_label").text = "Distancia (%0.2fm): " % (1152/pixel_metro)
+	# como distancia_slider cambia pixel_metro hay que recalcular los valors de la velocidad
+	m_s = $"../velocidad_slider".value  / pixel_metro
+	k_h = m_s * 3.6
+	get_node("../velocidad_label").text = "Velocidad Inicial (%0.2fkm/h): " % k_h
 
 func _on_velocidad_slider_value_changed(value: float) -> void:
 	v_inicial = value
@@ -80,7 +84,7 @@ func _on_colision_pared():
 	var resta = (-b)+raiz_dicriminante; var a2 = 2*a;
 	var tiempo = resta/a2
 	get_node("../tiempo_label").text = "Tiempo: %0.4f" % tiempo
-	var vf_2 = (v_inicial*v_inicial) + (2*a_inicial*(1152/pixel_metro))
+	var vf_2 = (m_s*m_s) + (2*a_inicial*(1152/pixel_metro))
 	var vf_km = sqrt(vf_2) * 3.6
 	get_node("../vf_label").text = "Velocidad Final: %0.4fkm/h" % vf_km
 	var v_prom = (((velocidad + v_inicial)/pixel_metro)/2) * 3.6

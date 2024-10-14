@@ -1,9 +1,13 @@
-[gd_scene load_steps=24 format=4 uid="uid://rlif3ufy873o"]
+[gd_scene load_steps=28 format=4 uid="uid://rlif3ufy873o"]
 
 [ext_resource type="Texture2D" uid="uid://b5ty1srxak5l7" path="res://texturas/fondo_mru.jpeg" id="1_74sw7"]
 [ext_resource type="Script" path="res://Escenas simulaciones/MRU/MRU_Tiempo/personaje_MRU_Tiempo.gd" id="3_d7vnd"]
 [ext_resource type="Texture2D" uid="uid://swdpq4wpn5gu" path="res://texturas/sprite_MRU_accionando.png" id="4_mk0op"]
 [ext_resource type="Script" path="res://Escenas simulaciones/caida libre/quit_to_menu.gd" id="5_1q0nw"]
+[ext_resource type="Texture2D" uid="uid://cyt53bjiynxrn" path="res://texturas/boton_ayuda.png" id="5_uh087"]
+[ext_resource type="Script" path="res://Escenas simulaciones/caida libre/info_button.gd" id="6_a833h"]
+[ext_resource type="Script" path="res://Escenas simulaciones/caida libre/info_window.gd" id="7_084gc"]
+[ext_resource type="Texture2D" uid="uid://d2q7cunxcgugw" path="res://texturas/formulas/formula_mru_tiempo.png" id="8_5q7hv"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ymhh6"]
 tile_data = PackedInt32Array(0, 458752, 2, 65536, 196608, 4, 1, 458752, 2, 65537, 327680, 4)
@@ -3344,5 +3348,39 @@ offset_top = 605.0
 offset_right = 212.0
 offset_bottom = 628.0
 
+[node name="info_button" type="Button" parent="."]
+offset_left = 1.0
+offset_top = 575.0
+offset_right = 73.0
+offset_bottom = 647.0
+focus_mode = 0
+icon = ExtResource("5_uh087")
+flat = true
+script = ExtResource("6_a833h")
+
+[node name="info_window" type="Window" parent="."]
+auto_translate_mode = 1
+title = "Info"
+initial_position = 4
+size = Vector2i(600, 200)
+script = ExtResource("7_084gc")
+
+[node name="tiempo_formula" type="TextureRect" parent="info_window"]
+anchors_preset = -1
+anchor_top = 0.117
+anchor_bottom = 0.333
+offset_right = 204.66
+offset_bottom = 40.0
+texture = ExtResource("8_5q7hv")
+expand_mode = 3
+
+[node name="tiempo_text" type="RichTextLabel" parent="info_window"]
+offset_right = 40.0
+offset_bottom = 40.0
+text = "El tiempo se calcula con la formula:"
+fit_content = true
+autowrap_mode = 0
+
 [connection signal="value_changed" from="velocidad_slider" to="personaje" method="_on_velocidad_slider_value_changed"]
 [connection signal="value_changed" from="distancia_slider" to="personaje" method="_on_distancia_slider_value_changed"]
+[connection signal="close_requested" from="info_window" to="info_window" method="_on_close_requested"]

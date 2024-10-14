@@ -16,6 +16,14 @@ func _physics_process(delta: float) -> void:
 	velocidad.y += gravity.y*delta
 	velocity = velocity*delta # modificar la velocity para que move_and_slide() pueda funcionar y detecte colision
 	self.position += velocidad * delta
+	# Indicador de objeto por fuera de pantalla
+	if self.position.y < 0: 
+		get_node("../above_indicator").texture = load("res://texturas/above_indicator.png")
+		get_node("../above_indicator").set_size(Vector2(30,50))
+		get_node("../above_indicator").position = Vector2(self.position.x + 20, 0)
+	else: 
+		get_node("../above_indicator").texture = null
+		get_node("../above_indicator").position = Vector2(0,0)
 	var collide = move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
@@ -35,6 +43,7 @@ func _input(event):
 			else:			
 				get_node("../error_label").text = ""
 				set_physics_process(true)
+				self.rotation  = ($"../angle_slider".max_value * PI/180) - (angulo_lanzamiento*PI/180)
 				movimiento_parabolico()
 
 
