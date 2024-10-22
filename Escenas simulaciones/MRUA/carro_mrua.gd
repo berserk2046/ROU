@@ -4,7 +4,7 @@ extends CharacterBody2D
 var velocidad = 0
 var v_inicial = 0
 var pixel_metro = 57.6
-var m_s
+var m_s = 0
 var k_h = 0
 var aceleracion_px = 0; var aceleracion = 0; var a_inicial = 0
 var physics_process_running = false # verificar si physics_process es falso o verdadero
@@ -83,9 +83,9 @@ func _on_colision_pared():
 		#print("Resta: ", (-b)+raiz_dicriminante); print("2a: ", 2*a)
 	var resta = (-b)+raiz_dicriminante; var a2 = 2*a;
 	var tiempo = resta/a2
-	get_node("../tiempo_label").text = "Tiempo: %0.4f" % tiempo
+	get_node("../tiempo_label").text = "Tiempo: %0.2f" % tiempo
 	var vf_2 = (m_s*m_s) + (2*a_inicial*(1152/pixel_metro))
 	var vf_km = sqrt(vf_2) * 3.6
-	get_node("../vf_label").text = "Velocidad Final: %0.4fkm/h" % vf_km
+	get_node("../vf_label").text = "Velocidad Final: %0.2fkm/h" % vf_km
 	var v_prom = (((velocidad + v_inicial)/pixel_metro)/2) * 3.6
-	get_node("../v_prom").text = "Velocidad Promedio: %0.4fkm/h" % v_prom
+	get_node("../v_prom").text = "Velocidad Promedio: %0.2fkm/h" % v_prom

@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0dvf6opbmsup"]
+[gd_scene load_steps=4 format=3 uid="uid://d0dvf6opbmsup"]
 
 [ext_resource type="Script" path="res://Escenas simulaciones/UI/menus/main/start_game.gd" id="1_hulfl"]
+[ext_resource type="FontFile" uid="uid://c5qgxcrfcmy15" path="res://Fonts/EuropeanTeletextNuevo.ttf" id="1_phgmr"]
+
+[sub_resource type="Theme" id="Theme_e60cw"]
 
 [node name="MainMenu" type="Control"]
 texture_filter = 1
@@ -18,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0666667, 0.0862745, 0.121569, 1)
+color = Color(0.134322, 0.00446724, 0.215585, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -28,7 +31,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
+theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
@@ -38,7 +41,8 @@ alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("1_phgmr")
+theme_override_font_sizes/font_size = 60
 text = "Rules of Universe"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -51,6 +55,8 @@ size_flags_vertical = 6
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = SubResource("Theme_e60cw")
+theme_override_fonts/font = ExtResource("1_phgmr")
 theme_override_font_sizes/font_size = 20
 text = "Start Game"
 script = ExtResource("1_hulfl")

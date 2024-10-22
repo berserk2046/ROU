@@ -1,10 +1,16 @@
-[gd_scene load_steps=16 format=4 uid="uid://bkd31n866j0pj"]
+[gd_scene load_steps=22 format=4 uid="uid://bkd31n866j0pj"]
 
 [ext_resource type="Texture2D" uid="uid://cnfny24q1ghgk" path="res://texturas/mc.jpg" id="1_lokua"]
 [ext_resource type="Texture2D" uid="uid://bo3epoplhaln" path="res://texturas/cielo.jpg" id="2_ylta7"]
 [ext_resource type="Script" path="res://Escenas simulaciones/MRUA/carro_mrua.gd" id="3_lpamk"]
 [ext_resource type="Texture2D" uid="uid://crua51ip10bam" path="res://texturas/objeto_mrua.png" id="4_14loi"]
 [ext_resource type="Script" path="res://Escenas simulaciones/caida libre/quit_to_menu.gd" id="5_rlxvy"]
+[ext_resource type="Texture2D" uid="uid://cyt53bjiynxrn" path="res://texturas/boton_ayuda.png" id="6_cvn0r"]
+[ext_resource type="Script" path="res://Escenas simulaciones/caida libre/info_button.gd" id="7_lwdwo"]
+[ext_resource type="Script" path="res://Escenas simulaciones/caida libre/info_window.gd" id="8_jimx4"]
+[ext_resource type="Texture2D" uid="uid://cwd55wfs3bwhd" path="res://texturas/formulas/formula_mrua_velocidadfinal.png" id="9_eaxti"]
+[ext_resource type="Texture2D" uid="uid://e651unh0q23y" path="res://texturas/formulas/formula_mrua_tiempo.png" id="10_p3lc1"]
+[ext_resource type="Texture2D" uid="uid://cejg3q02yelmk" path="res://texturas/formulas/formula_mrua_velocidad_prom.png" id="11_6lvx1"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ymhh6"]
 tile_data = PackedInt32Array(0, 458752, 2, 65536, 196608, 4, 1, 458752, 2, 65537, 327680, 4)
@@ -10724,6 +10730,84 @@ offset_top = 605.0
 offset_right = 212.0
 offset_bottom = 628.0
 
+[node name="info_button" type="Button" parent="."]
+offset_top = 573.0
+offset_right = 72.0
+offset_bottom = 645.0
+focus_mode = 0
+icon = ExtResource("6_cvn0r")
+flat = true
+script = ExtResource("7_lwdwo")
+
+[node name="info_window" type="Window" parent="."]
+auto_translate_mode = 1
+title = "Info"
+initial_position = 4
+size = Vector2i(600, 300)
+script = ExtResource("8_jimx4")
+
+[node name="vf_formula" type="TextureRect" parent="info_window"]
+anchors_preset = -1
+anchor_top = 0.103
+anchor_bottom = 0.103
+offset_right = 204.66
+offset_bottom = 40.0
+texture = ExtResource("9_eaxti")
+expand_mode = 3
+
+[node name="vf_text" type="RichTextLabel" parent="info_window"]
+offset_right = 40.0
+offset_bottom = 40.0
+text = "La velocidad final se calcula con la formula:"
+fit_content = true
+autowrap_mode = 0
+
+[node name="tiempo_label" type="RichTextLabel" parent="info_window"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -60.0
+offset_right = 272.0
+offset_bottom = -20.0
+grow_vertical = 2
+text = "El tiempo se calcula con la formula:"
+fit_content = true
+autowrap_mode = 0
+
+[node name="time_formula" type="TextureRect" parent="info_window"]
+anchors_preset = -1
+anchor_left = 0.026
+anchor_top = 0.408
+anchor_right = 0.026
+anchor_bottom = 0.566
+offset_right = 122.82
+offset_bottom = 20.0
+texture = ExtResource("10_p3lc1")
+expand_mode = 3
+
+[node name="vpromedio_label" type="RichTextLabel" parent="info_window"]
+clip_contents = false
+anchors_preset = -1
+anchor_top = 0.655
+anchor_bottom = 0.675
+offset_right = 40.0
+offset_bottom = 110.0
+text = "La velocidad promedio se calcula con la formula:"
+autowrap_mode = 0
+
+[node name="vpromedio_formula" type="TextureRect" parent="info_window"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -70.0
+offset_right = 230.0
+offset_bottom = -10.0
+grow_vertical = 0
+texture = ExtResource("11_6lvx1")
+expand_mode = 3
+
 [connection signal="value_changed" from="velocidad_slider" to="CarroMrua" method="_on_velocidad_slider_value_changed"]
 [connection signal="value_changed" from="distancia_slider" to="CarroMrua" method="_on_distancia_slider_value_changed"]
 [connection signal="value_changed" from="aceleracion_slider" to="CarroMrua" method="_on_aceleracion_slider_value_changed"]
+[connection signal="close_requested" from="info_window" to="info_window" method="_on_close_requested"]

@@ -1,10 +1,16 @@
-[gd_scene load_steps=15 format=4 uid="uid://ofdg15fwonmu"]
+[gd_scene load_steps=21 format=4 uid="uid://ofdg15fwonmu"]
 
 [ext_resource type="Texture2D" uid="uid://cnfny24q1ghgk" path="res://texturas/mc.jpg" id="1_42535"]
 [ext_resource type="Texture2D" uid="uid://bo3epoplhaln" path="res://texturas/cielo.jpg" id="2_akfc7"]
 [ext_resource type="Script" path="res://Escenas simulaciones/Parabolico/rocket.gd" id="3_uhl7a"]
 [ext_resource type="Texture2D" uid="uid://bm78fqygx51ir" path="res://texturas/cohete_mp.png" id="4_bx8la"]
 [ext_resource type="Script" path="res://Escenas simulaciones/caida libre/quit_to_menu.gd" id="5_5r7j1"]
+[ext_resource type="Texture2D" uid="uid://cyt53bjiynxrn" path="res://texturas/boton_ayuda.png" id="6_2dbnm"]
+[ext_resource type="Script" path="res://Escenas simulaciones/caida libre/info_button.gd" id="7_htpab"]
+[ext_resource type="Script" path="res://Escenas simulaciones/caida libre/info_window.gd" id="8_gyvpg"]
+[ext_resource type="Texture2D" uid="uid://b2407e0bhh5yl" path="res://texturas/formulas/formula_parabola_t_vuelo.png" id="9_kop2a"]
+[ext_resource type="Texture2D" uid="uid://cg4djaww4m251" path="res://texturas/formulas/formula_parabola_hmax.png" id="10_qnfko"]
+[ext_resource type="Texture2D" uid="uid://by80610bt51k6" path="res://texturas/formulas/formula_parabola_dmax.png" id="11_yyuc6"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ymhh6"]
 tile_data = PackedInt32Array(0, 458752, 2, 65536, 196608, 4, 1, 458752, 2, 65537, 327680, 4)
@@ -9930,5 +9936,83 @@ offset_right = 30.0
 offset_bottom = 50.0
 expand_mode = 1
 
+[node name="info_button" type="Button" parent="."]
+offset_top = 573.0
+offset_right = 72.0
+offset_bottom = 645.0
+focus_mode = 0
+icon = ExtResource("6_2dbnm")
+flat = true
+script = ExtResource("7_htpab")
+
+[node name="info_window" type="Window" parent="."]
+auto_translate_mode = 1
+title = "Info"
+initial_position = 4
+size = Vector2i(600, 300)
+script = ExtResource("8_gyvpg")
+
+[node name="tvuelo_formula" type="TextureRect" parent="info_window"]
+anchors_preset = -1
+anchor_top = 0.103
+anchor_bottom = 0.103
+offset_right = 300.0
+offset_bottom = 60.0
+texture = ExtResource("9_kop2a")
+expand_mode = 3
+
+[node name="tvuelo_text" type="RichTextLabel" parent="info_window"]
+offset_right = 40.0
+offset_bottom = 40.0
+text = "El tiempo de vuelo se calcula con la formula:"
+fit_content = true
+autowrap_mode = 0
+
+[node name="hmax_label" type="RichTextLabel" parent="info_window"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -60.0
+offset_right = 272.0
+offset_bottom = -20.0
+grow_vertical = 2
+text = "La altura maxima se calcula con la formula:"
+fit_content = true
+autowrap_mode = 0
+
+[node name="hmax_formula" type="TextureRect" parent="info_window"]
+anchors_preset = -1
+anchor_left = 0.026
+anchor_top = 0.408
+anchor_right = 0.026
+anchor_bottom = 0.566
+offset_right = 122.82
+offset_bottom = 20.0
+texture = ExtResource("10_qnfko")
+expand_mode = 3
+
+[node name="dmax_label" type="RichTextLabel" parent="info_window"]
+clip_contents = false
+anchors_preset = -1
+anchor_top = 0.655
+anchor_bottom = 0.675
+offset_right = 40.0
+offset_bottom = 110.0
+text = "La distancia maxima se calcula con la formula:"
+autowrap_mode = 0
+
+[node name="dmax_formula" type="TextureRect" parent="info_window"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -70.0
+offset_right = 230.0
+offset_bottom = -10.0
+grow_vertical = 0
+texture = ExtResource("11_yyuc6")
+expand_mode = 3
+
 [connection signal="value_changed" from="velocidad_slider" to="rocket" method="_on_velocidad_slider_value_changed"]
 [connection signal="value_changed" from="angle_slider" to="rocket" method="_on_angle_slider_value_changed"]
+[connection signal="close_requested" from="info_window" to="info_window" method="_on_close_requested"]
