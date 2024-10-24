@@ -67,15 +67,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 20
-text = "Movimiento Rectilinio Uniformemente Acelerado"
+text = "Mov. Rectilinio Uniformemente Acelerado"
 horizontal_alignment = 1
 
 [node name="Button_mrua" type="Button" parent="MarginContainer2/HBoxContainer/MRUA"]
 layout_mode = 0
 offset_left = 104.0
 offset_top = 75.0
-offset_right = 440.0
-offset_bottom = 389.0
+offset_right = 448.0
+offset_bottom = 397.0
 icon = ExtResource("1_j8o01")
 script = ExtResource("2_cyyhw")
 
@@ -84,15 +84,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 20
-text = "Movimiento Parabolico
+text = "  Movimiento Parabolico
 "
 horizontal_alignment = 1
 
 [node name="button_mp" type="Button" parent="MarginContainer2/HBoxContainer/movimiento_parabolico"]
-offset_left = 104.0
+layout_mode = 0
+offset_left = 100.0
 offset_top = 75.0
-offset_right = 440.0
-offset_bottom = 389.0
+offset_right = 444.0
+offset_bottom = 397.0
 icon = ExtResource("3_n66jx")
 script = ExtResource("4_u7o3d")
 

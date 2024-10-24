@@ -27,6 +27,10 @@ window/stretch/mode="viewport"
 
 piso=""
 
+[gui]
+
+theme/custom_font="res://Fonts/EuropeanTeletextNuevo.ttf"
+
 [input]
 
 jump={

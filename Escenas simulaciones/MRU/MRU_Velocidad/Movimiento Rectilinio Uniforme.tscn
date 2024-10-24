@@ -3303,14 +3303,14 @@ position = Vector2(35, -26)
 [node name="distancia_label" type="Label" parent="."]
 offset_left = 13.0
 offset_top = 461.0
-offset_right = 53.0
-offset_bottom = 484.0
+offset_right = 217.0
+offset_bottom = 478.0
 text = "Distancia (0 m): "
 
 [node name="distancia_slider" type="HSlider" parent="."]
-offset_left = 213.0
+offset_left = 283.0
 offset_top = 465.0
-offset_right = 398.0
+offset_right = 468.0
 offset_bottom = 481.0
 max_value = 2304.0
 step = 18.0
@@ -3319,7 +3319,7 @@ step = 18.0
 offset_left = 17.0
 offset_top = 493.0
 offset_right = 172.0
-offset_bottom = 516.0
+offset_bottom = 510.0
 text = "Tiempo (1 s)"
 
 [node name="velocidad_label" type="Label" parent="."]
@@ -3329,9 +3329,9 @@ offset_right = 175.0
 offset_bottom = 562.0
 
 [node name="tiempo__slider" type="HSlider" parent="."]
-offset_left = 213.0
+offset_left = 283.0
 offset_top = 497.0
-offset_right = 397.0
+offset_right = 467.0
 offset_bottom = 513.0
 min_value = 1.0
 max_value = 120.0

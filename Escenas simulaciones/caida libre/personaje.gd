@@ -14,12 +14,12 @@ func shoot():
 func _on_slider_altura_value_changed(value: float) -> void:
 	altura_metros = value / pixel_metro
 	position.y = 328 - value
-	get_node("../Altura").text = "Altura (%0.2f metros): " % altura_metros
+	get_node("../Altura").text = "Altura (%0.2f metros)" % altura_metros
 	
 func _on_v_slider_value_changed(value: float) -> void:
 	SignalBus.gravedad = value
 	gravedad = SignalBus.gravedad
-	$"../Gravedad".text = "Gravedad: %0.2fm/s^2" % gravedad
+	$"../Gravedad".text = "Gravedad (%0.2fm/s^2)" % gravedad
 	
 func _on_bala_toco_piso():
 	$"../VelocidadFinal".text = "Velocidad Final: %0.4fm/s" % sqrt(2*(gravedad)*altura_metros)
