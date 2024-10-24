@@ -10725,10 +10725,10 @@ offset_bottom = 622.0
 script = ExtResource("5_rlxvy")
 
 [node name="error_label" type="Label" parent="."]
-offset_left = 22.0
-offset_top = 605.0
-offset_right = 212.0
-offset_bottom = 628.0
+offset_left = 67.0
+offset_top = 598.0
+offset_right = 257.0
+offset_bottom = 621.0
 
 [node name="info_button" type="Button" parent="."]
 offset_top = 573.0
@@ -10806,6 +10806,13 @@ offset_bottom = -10.0
 grow_vertical = 0
 texture = ExtResource("11_6lvx1")
 expand_mode = 3
+
+[node name="start_label" type="Label" parent="."]
+offset_left = 22.0
+offset_top = 387.0
+offset_right = 285.0
+offset_bottom = 410.0
+text = "Presiona Espacio para comenzar..."
 
 [connection signal="value_changed" from="velocidad_slider" to="CarroMrua" method="_on_velocidad_slider_value_changed"]
 [connection signal="value_changed" from="distancia_slider" to="CarroMrua" method="_on_distancia_slider_value_changed"]

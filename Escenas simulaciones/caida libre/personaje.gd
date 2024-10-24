@@ -9,6 +9,7 @@ func shoot():
 	owner.add_child(b)
 	b.transform = $Muzzle.global_transform
 	SignalBus.bala_toca_suelo.connect(_on_bala_toco_piso)
+	get_node("../start_label").text = ""
 	
 func _on_slider_altura_value_changed(value: float) -> void:
 	altura_metros = value / pixel_metro

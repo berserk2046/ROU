@@ -22,6 +22,8 @@ func shoot():
 	owner.add_child(b)
 	b.transform = $Muzzle.global_transform
 	SignalBus.colision_pared.connect(_on_colision_pared)
+	get_node("../start_label").text = ""
+
 
 
 func _on_colision_pared():

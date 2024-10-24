@@ -9894,10 +9894,10 @@ offset_bottom = 510.0
 max_value = 90.0
 
 [node name="error_label" type="Label" parent="."]
-offset_left = 22.0
-offset_top = 605.0
-offset_right = 212.0
-offset_bottom = 628.0
+offset_left = 62.0
+offset_top = 596.0
+offset_right = 252.0
+offset_bottom = 619.0
 
 [node name="Resultados_label" type="Label" parent="."]
 offset_left = 573.0
@@ -10012,6 +10012,13 @@ offset_bottom = -10.0
 grow_vertical = 0
 texture = ExtResource("11_yyuc6")
 expand_mode = 3
+
+[node name="start_label" type="Label" parent="."]
+offset_left = 22.0
+offset_top = 387.0
+offset_right = 285.0
+offset_bottom = 410.0
+text = "Presiona Espacio para comenzar..."
 
 [connection signal="value_changed" from="velocidad_slider" to="rocket" method="_on_velocidad_slider_value_changed"]
 [connection signal="value_changed" from="angle_slider" to="rocket" method="_on_angle_slider_value_changed"]

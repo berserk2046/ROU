@@ -3341,18 +3341,11 @@ min_value = 1.0
 max_value = 120.0
 value = 1.0
 
-[node name="Quit" type="Button" parent="."]
-offset_left = 1046.0
-offset_top = 597.0
-offset_right = 1123.0
-offset_bottom = 625.0
-script = ExtResource("5_s5apj")
-
 [node name="error_label" type="Label" parent="."]
-offset_left = 22.0
-offset_top = 605.0
-offset_right = 212.0
-offset_bottom = 628.0
+offset_left = 77.0
+offset_top = 581.0
+offset_right = 267.0
+offset_bottom = 604.0
 
 [node name="info_button" type="Button" parent="."]
 offset_left = 1.0
@@ -3386,6 +3379,20 @@ offset_bottom = 40.0
 text = "La distancia recorrida se calcula con la formula:"
 fit_content = true
 autowrap_mode = 0
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 1005.0
+offset_top = 587.0
+offset_right = 1095.0
+offset_bottom = 615.0
+script = ExtResource("5_s5apj")
+
+[node name="start_label" type="Label" parent="."]
+offset_left = 22.0
+offset_top = 387.0
+offset_right = 285.0
+offset_bottom = 410.0
+text = "Presiona Espacio para comenzar..."
 
 [connection signal="value_changed" from="velocidad_slider" to="personaje" method="_on_velocidad_slider_value_changed"]
 [connection signal="value_changed" from="tiempo__slider" to="personaje" method="_on_tiempo_slider_value_changed"]

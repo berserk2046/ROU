@@ -14,6 +14,7 @@ func _ready(): set_physics_process(false)
 
 func _physics_process(delta: float) -> void:
 	velocidad.y += gravity.y*delta
+	get_node("../start_label").text = ""
 	velocity = velocity*delta # modificar la velocity para que move_and_slide() pueda funcionar y detecte colision
 	self.position += velocidad * delta
 	# Indicador de objeto por fuera de pantalla
@@ -39,12 +40,16 @@ func _physics_process(delta: float) -> void:
 func _input(event):
 	if event is InputEventKey:
 		if Input.is_action_just_pressed("ui_accept"):
-			if $"../velocidad_slider".value == 0: get_node("../error_label").text = "Error: Dele valor a la velocidad inicial"
-			else:			
-				get_node("../error_label").text = ""
-				set_physics_process(true)
-				self.rotation  = ($"../angle_slider".max_value * PI/180) - (angulo_lanzamiento*PI/180)
-				movimiento_parabolico()
+			if physics_process_running:
+				get_node("../error_label").text = "Debe esperar a que el cohete termine su recorrido"
+			else:
+				if $"../velocidad_slider".value == 0: get_node("../error_label").text = "Error: Dele valor a la velocidad inicial"
+				else:			
+					get_node("../error_label").text = ""
+					set_physics_process(true)
+					physics_process_running = true
+					self.rotation  = ($"../angle_slider".max_value * PI/180) - (angulo_lanzamiento*PI/180)
+					movimiento_parabolico()
 
 
 func _on_velocidad_slider_value_changed(value: float) -> void:

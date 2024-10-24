@@ -3343,10 +3343,10 @@ offset_bottom = 622.0
 script = ExtResource("5_1q0nw")
 
 [node name="error_label" type="Label" parent="."]
-offset_left = 22.0
-offset_top = 605.0
-offset_right = 212.0
-offset_bottom = 628.0
+offset_left = 76.0
+offset_top = 599.0
+offset_right = 266.0
+offset_bottom = 622.0
 
 [node name="info_button" type="Button" parent="."]
 offset_left = 1.0
@@ -3380,6 +3380,13 @@ offset_bottom = 40.0
 text = "El tiempo se calcula con la formula:"
 fit_content = true
 autowrap_mode = 0
+
+[node name="start_label" type="Label" parent="."]
+offset_left = 22.0
+offset_top = 387.0
+offset_right = 285.0
+offset_bottom = 410.0
+text = "Presiona Espacio para comenzar..."
 
 [connection signal="value_changed" from="velocidad_slider" to="personaje" method="_on_velocidad_slider_value_changed"]
 [connection signal="value_changed" from="distancia_slider" to="personaje" method="_on_distancia_slider_value_changed"]

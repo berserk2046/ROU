@@ -5670,10 +5670,10 @@ shape = SubResource("RectangleShape2D_0ec7s")
 position = Vector2(16, -14)
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 1025.0
-offset_top = 594.0
-offset_right = 1102.0
-offset_bottom = 622.0
+offset_left = 1005.0
+offset_top = 587.0
+offset_right = 1095.0
+offset_bottom = 615.0
 script = ExtResource("6_pakop")
 
 [node name="gravedad_slider" type="VSlider" parent="."]
@@ -5700,6 +5700,7 @@ script = ExtResource("6_6xlac")
 title = "Info"
 initial_position = 4
 size = Vector2i(600, 200)
+visible = false
 script = ExtResource("6_8bayx")
 
 [node name="vf_formula" type="TextureRect" parent="info_window"]
@@ -5746,6 +5747,13 @@ offset_left = 22.0
 offset_top = 410.0
 offset_right = 212.0
 offset_bottom = 433.0
+
+[node name="start_label" type="Label" parent="."]
+offset_left = 22.0
+offset_top = 387.0
+offset_right = 285.0
+offset_bottom = 410.0
+text = "Presiona Espacio para comenzar..."
 
 [connection signal="value_changed" from="slider_altura" to="Altura" method="_on_slider_altura_value_changed"]
 [connection signal="value_changed" from="slider_altura" to="personaje" method="_on_slider_altura_value_changed"]

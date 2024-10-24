@@ -15,6 +15,7 @@ func _ready(): set_physics_process(false)
 
 func _physics_process(delta: float) -> void:
 	if esta_acelerando: apply_acceleration(delta)
+	get_node("../start_label").text = ""
 	velocity = Vector2(velocidad, 0)
 	var collide = move_and_collide(velocity * delta)
 	if collide:
