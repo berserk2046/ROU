@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://baj6pdl2aiekk"]
+[gd_scene load_steps=10 format=3 uid="uid://baj6pdl2aiekk"]
 
 [ext_resource type="Texture2D" uid="uid://cdqwyvyw3l2v2" path="res://texturas/boton_vf_t.png" id="1_ia8av"]
 [ext_resource type="Script" path="res://Escenas simulaciones/UI/menus/scene_selector/scene_selection_menu.gd" id="1_ubyco"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Escenas simulaciones/UI/menus/scene_selector/next_page.gd" id="6_0doel"]
 [ext_resource type="Texture2D" uid="uid://c3hfrwm0grtyn" path="res://texturas/flecha_izquierda.png" id="6_lwdsg"]
 [ext_resource type="Texture2D" uid="uid://dmgkwyh2kt43e" path="res://texturas/flecha_derecha.png" id="7_gifpn"]
+[ext_resource type="Script" path="res://Escenas simulaciones/UI/menus/scene_selector/quit_to_start.gd" id="9_o3ia0"]
 
 [node name="SceneSelectionMenu" type="Control"]
 layout_mode = 3
@@ -47,7 +48,7 @@ alignment = 1
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Scene Selector"
+text = "Seleccionar Escena"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -121,6 +122,15 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 script = ExtResource("6_0doel")
+
+[node name="quit_to_start" type="Button" parent="."]
+offset_left = 16.0
+offset_top = 22.0
+offset_right = 166.0
+offset_bottom = 79.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("9_o3ia0")
 
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/MRU/Left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="MarginContainer2/HBoxContainer/MRU/Right" to="." method="_on_right_pressed"]
